@@ -1,7 +1,9 @@
-package com.chochozabe.springboot.dto;
+package com.chochozabe.springboot.web;
 
 import com.chochozabe.springboot.domain.posts.Posts;
 import com.chochozabe.springboot.domain.posts.PostsRepository;
+import com.chochozabe.springboot.dto.PostsSaveRequestDTO;
+import com.chochozabe.springboot.dto.PostsUpdateRequestDTO;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

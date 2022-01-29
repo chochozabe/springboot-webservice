@@ -1,4 +1,4 @@
-package com.chochozabe.springboot;
+package com.chochozabe.springboot.web;
 
 import com.chochozabe.springboot.web.HelloController;
 import org.junit.jupiter.api.Test;
