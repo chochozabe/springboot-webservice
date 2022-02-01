@@ -1,5 +1,7 @@
 .gradle
 .idea
-/build
-/out
+
+build
+out
+
 application-oauth.properties
