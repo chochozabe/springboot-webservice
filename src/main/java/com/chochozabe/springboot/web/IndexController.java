@@ -1,31 +1,26 @@
 package com.chochozabe.springboot.web;
 
+import com.chochozabe.springboot.config.auth.LoginUser;
 import com.chochozabe.springboot.config.auth.dto.SessionUser;
 import com.chochozabe.springboot.dto.PostsResponseDTO;
 import com.chochozabe.springboot.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
-    private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
-
-        if(user != null) {
+        if (user != null) {
             System.out.println("==================================");
             System.out.println(user.toString());
             model.addAttribute("loginName", user.getName());
@@ -46,7 +41,6 @@ public class IndexController {
 
         return "posts-update";
     }
-
 
 
 }
